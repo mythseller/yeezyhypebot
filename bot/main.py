@@ -137,7 +137,7 @@ async def on_message(message):
         msg = message.content.strip(f"<@&{futures_role.id}>")
         embed = discord.Embed(title=msg, color=0xe0dd12, timestamp=datetime.now())
         # embed.add_field(name="Trade Type:", value=futures_role.mention)
-        # embed.add_field(name="Risk level:", value="Futuredss")
+        # embed.add_field(name="Risk level:", value="Futures")
         embed.set_author(
             name=message.author.display_name, icon_url=message.author.avatar_url
         )
