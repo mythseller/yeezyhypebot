@@ -95,7 +95,7 @@ async def on_message(message):
         await messageEmoji.add_reaction("❌")
         # await targetEmoji.add_reaction("👍")
         # await targetEmoji.add_reaction("❌")
-        
+
     elif risky_role in message.role_mentions:
         #risky
         msg = message.content.strip(f"<@&{risky_role.id}>")
@@ -113,7 +113,7 @@ async def on_message(message):
         await messageEmoji.add_reaction("❌")
         # await targetEmoji.add_reaction("👍")
         # await targetEmoji.add_reaction("❌")
-        
+
     elif lotto_role in message.role_mentions:
         #lotto
         msg = message.content.strip(f"<@&{lotto_role.id}>")
@@ -131,18 +131,21 @@ async def on_message(message):
         await messageEmoji.add_reaction("❌")
         # await targetEmoji.add_reaction("👍")
         # await targetEmoji.add_reaction("❌")
-        
+
     elif futures_role in message.role_mentions:
         # futures
         msg = message.content.strip(f"<@&{futures_role.id}>")
         embed = discord.Embed(title=msg, color=0xe0dd12, timestamp=datetime.now())
         # embed.add_field(name="Trade Type:", value=futures_role.mention)
-        # embed.add_field(name="Risk level:", value="Futures")
+        # embed.add_field(name="Risk level:", value="Futuredss")
         embed.set_author(
             name=message.author.display_name, icon_url=message.author.avatar_url
         )
+        noti = await callout_channel.send(msg + f"<@&{futures_role.id}>")
+        await noti.delete()
+        await callout_channel.send(embed=embed)
         await futures_channel.send(embed=embed)
-   
+
     elif goblin_role in message.role_mentions:
         # goblin mode
         msg = message.content.strip(f"<@&{goblin_role.id}>")
